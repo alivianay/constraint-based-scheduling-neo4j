@@ -24,12 +24,6 @@ This project implements a **graph-based constraint satisfaction system** for uni
 -  Respecting student enrollment patterns  
 -  Meeting departmental requirements  
 
-###  Why Graph Database?
-Neo4j models relationships naturally:
-- **Nodes** → Courses, Professors, Rooms, Time Slots  
-- **Relationships** → Constraints and assignments  
-- **Paths** → Valid schedule solutions  
-
 ##  How to Use This Project
 
 ### Prerequisites
