@@ -149,7 +149,7 @@ CREATE (r5:RuangKelas {
 // ===============================================
 
 CREATE (t1:Waktu {
-  id_waktu: "T05",
+  id_waktu: "T01",
   hari: "Selasa",
   jam_mulai: "07:00",
   jam_selesai: "09:30",
@@ -157,7 +157,7 @@ CREATE (t1:Waktu {
 });
 
 CREATE (t2:Waktu {
-  id_waktu: "T06",
+  id_waktu: "T02",
   hari: "Selasa",
   jam_mulai: "09:30",
   jam_selesai: "12:00",
@@ -165,7 +165,7 @@ CREATE (t2:Waktu {
 });
 
 CREATE (t3:Waktu {
-  id_waktu: "T07",
+  id_waktu: "T03",
   hari: "Selasa",
   jam_mulai: "13:00",
   jam_selesai: "15:30",
@@ -173,7 +173,7 @@ CREATE (t3:Waktu {
 });
 
 CREATE (t4:Waktu {
-  id_waktu: "T08",
+  id_waktu: "T04",
   hari: "Selasa",
   jam_mulai: "15:30",
   jam_selesai: "18:00",
@@ -181,7 +181,7 @@ CREATE (t4:Waktu {
 });
 
 CREATE (t5:Waktu {
-  id_waktu: "T09",
+  id_waktu: "T05",
   hari: "Rabu",
   jam_mulai: "07:00",
   jam_selesai: "09:30",
@@ -189,7 +189,7 @@ CREATE (t5:Waktu {
 });
 
 CREATE (t6:Waktu {
-  id_waktu: "T10",
+  id_waktu: "T06",
   hari: "Rabu",
   jam_mulai: "09:30",
   jam_selesai: "12:00",
@@ -197,7 +197,7 @@ CREATE (t6:Waktu {
 });
 
 CREATE (t7:Waktu {
-  id_waktu: "T11",
+  id_waktu: "T07",
   hari: "Rabu",
   jam_mulai: "13:00",
   jam_selesai: "15:30",
@@ -205,7 +205,7 @@ CREATE (t7:Waktu {
 });
 
 CREATE (t8:Waktu {
-  id_waktu: "T12",
+  id_waktu: "T08",
   hari: "Rabu",
   jam_mulai: "15:30",
   jam_selesai: "18:00",
@@ -213,7 +213,7 @@ CREATE (t8:Waktu {
 });
 
 CREATE (t9:Waktu {
-  id_waktu: "T13",
+  id_waktu: "T09",
   hari: "Kamis",
   jam_mulai: "07:00",
   jam_selesai: "09:30",
@@ -221,7 +221,7 @@ CREATE (t9:Waktu {
 });
 
 CREATE (t10:Waktu {
-  id_waktu: "T14",
+  id_waktu: "T10",
   hari: "Kamis",
   jam_mulai: "09:30",
   jam_selesai: "12:00",
@@ -229,7 +229,7 @@ CREATE (t10:Waktu {
 });
 
 CREATE (t11:Waktu {
-  id_waktu: "T15",
+  id_waktu: "T11",
   hari: "Kamis",
   jam_mulai: "13:00",
   jam_selesai: "15:30",
@@ -237,7 +237,7 @@ CREATE (t11:Waktu {
 });
 
 CREATE (t12:Waktu {
-  id_waktu: "T16",
+  id_waktu: "T12",
   hari: "Kamis",
   jam_mulai: "15:30",
   jam_selesai: "18:00",
