@@ -64,44 +64,43 @@ This project implements a **graph-based constraint satisfaction system** for uni
 MATCH (d:Dosen)-[:TAUGHT_BY]-(mk1:MataKuliah)-[:SCHEDULED_AT]->(w:Waktu),
       (d)-[:TAUGHT_BY]-(mk2:MataKuliah)-[:SCHEDULED_AT]->(w)
 WHERE mk1 <> mk2
-RETURN d.nama AS Dosen, w.id_waktu AS Waktu, 
+RETURN d.nama AS Dosen, w.slot AS Waktu, 
        mk1.nama AS Kelas_1, mk2.nama AS Kelas_2
 ```
 
 **3. View All Constraints**
 ```cypher
-MATCH p=()-[r:CONFLICT_WITH|REQUIRES_ROOM_TYPE|CAN_TEACH]->() 
+MATCH p=()-[r:SAME_TIME_CONFLICT|CLASS_ROOM|CAN_TEACH]->() 
 RETURN p
 ```
 
 ##  Project Structure
 
 ```
-course-scheduling-graph/
+constraint-scheduling-neo4j/
 ├── database/
 │   ├── 01_schema_setup.cypher    # Database constraints & indexes
 │   ├── 02_sample_data.cypher     # Sample nodes & relationships
 │   └── 03_demo_queries.cypher    # Demonstration queries
 ├── docs/
 │   ├── database_design.md        # Schema explanation
-│   └── demonstration_guide.md    # Demo instructions
+│   ├── demonstration_guide.md    # Demo instructions
+│   ├── schema_diagram.txt        # Visual schema representation
+│   └── time_slot_mapping.md      # Time slot reference
 └── README.md
 ```
 
 ##  Sample Data Included
 
-- **Courses**: Pengantar AI, Basis Data Lanjut, Jaringan Komputer  
-- **Professors**: Ibu Elly Matul, Pak Ibnu Febry
-- **Rooms**: E2.01.01-E2.01.04, LAB-01
-- **Day Slot**: Tuesday-Thursday
-- **Time Slots**: 7-9.30, 9.30-12.00, 13.00-15.30, 15.30-18.00 
-- **Constraints**: Conflict rules, room requirements, professor preferences  
+- **Courses**: Pengantar Kecerdasan Buatan, Basis Data Lanjut, Jaringan Komputer, Praktikum Jaringan, Algoritma dan Struktur Data, Praktikum Algoritma
+- **Professors**: Prof. Elly Matul, Prof. Ibnu Febry, Prof. Hasanuddin Al, Prof. Yuliani Puji, Prof. Ulfa Siti
+- **Rooms**: E2.01.01, E2.01.02, E2.01.03, E2.01.04, LAB-01
+- **Students**: Devina Sawitri, Alivia Wibisono, Siti Aida, Daffa Narawangsa, Ferdiansyah Syahputa
+- **Time Slots**: Tuesday-Thursday, 07:00-18:00 (12 time slots with slot)
+- **Constraints**: Same-time conflicts, room requirements, professor preferences  
 
 ##  Key Features
 
--  Constraint Modeling  
--  Conflict Detection  
--  Schedule Validation  
 
 ##  Understanding the Graph Schema
 
@@ -115,12 +114,23 @@ course-scheduling-graph/
 - `Mahasiswa` (Student) 
 
 **Relationships:**
-- `CONFLICT_WITH`  
-- `CAN_TEACH`  
-- `REQUIRES_ROOM_TYPE`  
-- `AVAILABLE_AT`  
-- `PREFERRED_TIME`
-- `ENROLLED_IN`
-- `HELD_IN`
-- `SCHEDULE_AT`
-- `TAUGHT_BY`
+- `SAME_TIME_CONFLICT` - Courses that cannot be scheduled simultaneously
+- `CLASS_ROOM` - Course room requirements  
+- `CAN_TEACH` - Professor teaching capabilities
+- `TAUGHT_BY` - Course assignments to professors
+- `SCHEDULED_AT` - Course time assignments
+- `HELD_IN` - Course room assignments
+- `AVAILABLE_AT` - Professor availability
+- `PREFERRED_TIME` - Professor time preferences
+- `ENROLLED_IN` - Student course enrollments
+
+##  Constraint Types
+
+### Hard Constraints (Must be satisfied)
+1. **Professor Availability** - Professor can only teach when available
+2. **Time Conflicts** - No double-booking of professors or rooms
+3. **Course Conflicts** - Conflicting courses cannot be scheduled simultaneously
+
+### Soft Constraints (Preferences)
+1. **Professor Preferences** - Professors prefer certain time slots
+2. **Student Load** - Balanced distribution of courses across time slots
