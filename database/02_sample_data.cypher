@@ -244,3 +244,98 @@ CREATE (t16:Waktu {
   sesi: 4
 });
 
+// ===============================================
+// CREATE MAHASISWA (STUDENTS)
+// ===============================================
+
+CREATE (m1:Mahasiswa {
+    id_mahasiswa: "M036",
+    nama: "Devina Sawitri",
+    angkatan: 2021,
+    program_studi: "Sains Data"
+});
+
+CREATE (m2:Mahasiswa {
+    id_mahasiswa: "M041",
+    nama: "Alivia Wibisono",
+    angkatan: 2021,
+    program_studi: "Teknik Informatika"
+});
+
+CREATE (m3:Mahasiswa {
+    id_mahasiswa: "M044",
+    nama: "Siti Aida",
+    angkatan: 2020,
+    program_studi: "Teknik Informatika"
+});
+
+CREATE (m4:Mahasiswa {
+    id_mahasiswa: "M004",
+    nama: "Daffa Narawangsa",
+    angkatan: 2021,
+    program_studi: "Teknik Informatika"
+});
+
+CREATE (m5:Mahasiswa {
+    id_mahasiswa: "M005",
+    nama: "Ferdiansyah Syahputa",
+    angkatan: 2020,
+    program_studi: "Teknik Informatika"
+});
+
+
+// ===============================================
+// CREATE PROFESSOR-COURSE RELATIONSHIPS
+// ===============================================
+
+// Dr. Elly can teach AI and Algorithms
+
+
+// Prof. Ibnu can teach Database and Algorithms
+
+
+
+
+
+
+
+// ===============================================
+// CREATE PROFESSOR AVAILABILITY
+// ===============================================
+
+// ===============================================
+// CREATE PROFESSOR PREFERENCES
+// ===============================================
+
+
+// ===============================================
+// CREATE COURSE-ROOM REQUIREMENTS
+// ===============================================
+
+
+// ===============================================
+// CREATE COURSE CONFLICTS
+// ===============================================
+
+// ===============================================
+// CREATE STUDENT ENROLLMENTS
+// ===============================================
+
+// ===============================================
+// CREATE SAMPLE SCHEDULE (VALID ASSIGNMENTS)
+// ===============================================
+
+
+// ===============================================
+// VERIFY DATA CREATION
+// ===============================================
+
+// Count nodes by type
+MATCH (n) 
+RETURN labels(n) AS NodeType, count(n) AS Count
+ORDER BY NodeType;
+
+// Show sample relationships
+MATCH (n)-[r]->(m) 
+RETURN type(r) AS RelationshipType, count(r) AS Count
+ORDER BY RelationshipType;
