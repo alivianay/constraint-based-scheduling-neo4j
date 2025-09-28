@@ -143,3 +143,104 @@ CREATE (r5:RuangKelas {
   jenis: 'lab',
   fasilitas: ['Komputer', 'Internet', 'Kursi Lab', 'Proyektor', 'Whiteboard']
 });
+
+// ===============================================
+// CREATE WAKTU (TIME SLOTS)
+// ===============================================
+
+CREATE (t5:Waktu {
+  id_waktu: "T05",
+  hari: "Selasa",
+  jam_mulai: "07:00",
+  jam_selesai: "09:30",
+  sesi: 1
+});
+
+CREATE (t6:Waktu {
+  id_waktu: "T06",
+  hari: "Selasa",
+  jam_mulai: "09:30",
+  jam_selesai: "12:00",
+  sesi: 2
+});
+
+CREATE (t7:Waktu {
+  id_waktu: "T07",
+  hari: "Selasa",
+  jam_mulai: "13:00",
+  jam_selesai: "15:30",
+  sesi: 3
+});
+
+CREATE (t8:Waktu {
+  id_waktu: "T08",
+  hari: "Selasa",
+  jam_mulai: "15:30",
+  jam_selesai: "18:00",
+  sesi: 4
+});
+
+CREATE (t9:Waktu {
+  id_waktu: "T09",
+  hari: "Rabu",
+  jam_mulai: "07:00",
+  jam_selesai: "09:30",
+  sesi: 1
+});
+
+CREATE (t10:Waktu {
+  id_waktu: "T10",
+  hari: "Rabu",
+  jam_mulai: "09:30",
+  jam_selesai: "12:00",
+  sesi: 2
+});
+
+CREATE (t11:Waktu {
+  id_waktu: "T11",
+  hari: "Rabu",
+  jam_mulai: "13:00",
+  jam_selesai: "15:30",
+  sesi: 3
+});
+
+CREATE (t12:Waktu {
+  id_waktu: "T12",
+  hari: "Rabu",
+  jam_mulai: "15:30",
+  jam_selesai: "18:00",
+  sesi: 4
+});
+
+CREATE (t13:Waktu {
+  id_waktu: "T13",
+  hari: "Kamis",
+  jam_mulai: "07:00",
+  jam_selesai: "09:30",
+  sesi: 1
+});
+
+CREATE (t14:Waktu {
+  id_waktu: "T14",
+  hari: "Kamis",
+  jam_mulai: "09:30",
+  jam_selesai: "12:00",
+  sesi: 2
+});
+
+CREATE (t15:Waktu {
+  id_waktu: "T15",
+  hari: "Kamis",
+  jam_mulai: "13:00",
+  jam_selesai: "15:30",
+  sesi: 3
+});
+
+CREATE (t16:Waktu {
+  id_waktu: "T16",
+  hari: "Kamis",
+  jam_mulai: "15:30",
+  jam_selesai: "18:00",
+  sesi: 4
+});
+
