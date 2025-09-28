@@ -330,27 +330,158 @@ CREATE (d)-[:CAN_TEACH]->(mk);
 // CREATE PROFESSOR AVAILABILITY
 // ===============================================
 
+// Prof. Elly is available Tuesday and Wednesday mornings
+MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {id_waktu: "T05"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {id_waktu: "T09"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {id_waktu: "T10"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+// Prof. Ibnu is available Tuesday and Thursday mornings
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T05"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T13"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T14"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+// Prof. Hasanuddin is available Tuesday and Wednesday afternoons
+MATCH (d:Dosen {id_dosen: "D003"}), (w:Waktu {id_waktu: "T07"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D003"}), (w:Waktu {id_waktu: "T11"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D003"}), (w:Waktu {id_waktu: "T15"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+// Prof. Yuliani is available Wednesday and Thursday
+MATCH (d:Dosen {id_dosen: "D004"}), (w:Waktu {id_waktu: "T09"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D004"}), (w:Waktu {id_waktu: "T13"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D004"}), (w:Waktu {id_waktu: "T16"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+// Prof. Ulfa is available Tuesday and Thursday afternoons
+MATCH (d:Dosen {id_dosen: "D005"}), (w:Waktu {id_waktu: "T06"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
+MATCH (d:Dosen {id_dosen: "D005"}), (w:Waktu {id_waktu: "T15"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
 // ===============================================
 // CREATE PROFESSOR PREFERENCES
 // ===============================================
 
+// Prof. Elly prefers morning sessions
+MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {sesi: 1})
+CREATE (d)-[:PREFERRED_TIME]->(w);
+
+MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {sesi: 2})
+CREATE (d)-[:PREFERRED_TIME]->(w);
+
+// Prof. Ibnu prefers early morning
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T05"})
+CREATE (d)-[:PREFERRED_TIME]->(w);
+
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T13"})
+CREATE (d)-[:PREFERRED_TIME]->(w);
 
 // ===============================================
 // CREATE COURSE-ROOM REQUIREMENTS
 // ===============================================
 
+// Network Lab requires computer lab
+MATCH (mk:MataKuliah {id_mk: "CS104"}), (r:RuangKelas {jenis: "lab"})
+CREATE (mk)-[:REQUIRES_ROOM_TYPE]->(r);
+
+// Algorithm Lab requires computer lab
+MATCH (mk:MataKuliah {id_mk: "CS106"}), (r:RuangKelas {jenis: "lab"})
+CREATE (mk)-[:REQUIRES_ROOM_TYPE]->(r);
+
+// Theory courses can use regular classrooms
+MATCH (mk:MataKuliah {jenis: "teori"}), (r:RuangKelas {jenis: "kelas"})
+CREATE (mk)-[:REQUIRES_ROOM_TYPE]->(r);
 
 // ===============================================
 // CREATE COURSE CONFLICTS
 // ===============================================
 
+// AI and Database cannot be scheduled at the same time (same semester students)
+MATCH (mk1:MataKuliah {id_mk: "CS101"}), (mk2:MataKuliah {id_mk: "CS102"})
+CREATE (mk1)-[:CONFLICT_WITH]->(mk2);
+
+// Network theory and lab cannot be at the same time
+MATCH (mk1:MataKuliah {id_mk: "CS103"}), (mk2:MataKuliah {id_mk: "CS104"})
+CREATE (mk1)-[:CONFLICT_WITH]->(mk2);
+
+// Algorithm theory and lab cannot be at the same time
+MATCH (mk1:MataKuliah {id_mk: "CS105"}), (mk2:MataKuliah {id_mk: "CS106"})
+CREATE (mk1)-[:CONFLICT_WITH]->(mk2);
+
 // ===============================================
 // CREATE STUDENT ENROLLMENTS
 // ===============================================
 
+// Students enrolled in 5th semester courses
+MATCH (m:Mahasiswa {angkatan: 2021}), (mk:MataKuliah {semester: 5})
+CREATE (m)-[:ENROLLED_IN]->(mk);
+
+// Students enrolled in 3rd semester courses
+MATCH (m:Mahasiswa {angkatan: 2020}), (mk:MataKuliah {semester: 3})
+CREATE (m)-[:ENROLLED_IN]->(mk);
+
 // ===============================================
 // CREATE SAMPLE SCHEDULE (VALID ASSIGNMENTS)
 // ===============================================
+
+// Pengantar AI - Prof. Elly - Tuesday 07:00-09:30 - Room E2.01.01
+MATCH (mk:MataKuliah {id_mk: "CS101"}), (d:Dosen {id_dosen: "D001"})
+CREATE (mk)-[:TAUGHT_BY]->(d);
+
+MATCH (mk:MataKuliah {id_mk: "CS101"}), (w:Waktu {id_waktu: "T05"})
+CREATE (mk)-[:SCHEDULED_AT]->(w);
+
+MATCH (mk:MataKuliah {id_mk: "CS101"}), (r:RuangKelas {id_ruang: "R001"})
+CREATE (mk)-[:HELD_IN]->(r);
+
+// Basis Data Lanjut - Prof. Ibnu - Tuesday 09:30-12:00 - Room E2.01.02
+MATCH (mk:MataKuliah {id_mk: "CS102"}), (d:Dosen {id_dosen: "D002"})
+CREATE (mk)-[:TAUGHT_BY]->(d);
+
+MATCH (mk:MataKuliah {id_mk: "CS102"}), (w:Waktu {id_waktu: "T06"})
+CREATE (mk)-[:SCHEDULED_AT]->(w);
+
+MATCH (mk:MataKuliah {id_mk: "CS102"}), (r:RuangKelas {id_ruang: "R002"})
+CREATE (mk)-[:HELD_IN]->(r);
+
+// Jaringan Komputer - Prof. Hasanuddin - Tuesday 13:00-15:30 - Room E2.01.03
+MATCH (mk:MataKuliah {id_mk: "CS103"}), (d:Dosen {id_dosen: "D003"})
+CREATE (mk)-[:TAUGHT_BY]->(d);
+
+MATCH (mk:MataKuliah {id_mk: "CS103"}), (w:Waktu {id_waktu: "T07"})
+CREATE (mk)-[:SCHEDULED_AT]->(w);
+
+MATCH (mk:MataKuliah {id_mk: "CS103"}), (r:RuangKelas {id_ruang: "R003"})
+CREATE (mk)-[:HELD_IN]->(r);
+
+// Praktikum Jaringan - Prof. Hasanuddin - Wednesday 13:00-15:30 - Lab-01
+MATCH (mk:MataKuliah {id_mk: "CS104"}), (d:Dosen {id_dosen: "D003"})
+CREATE (mk)-[:TAUGHT_BY]->(d);
+
+MATCH (mk:MataKuliah {id_mk: "CS104"}), (w:Waktu {id_waktu: "T11"})
+CREATE (mk)-[:SCHEDULED_AT]->(w);
+
+MATCH (mk:MataKuliah {id_mk: "CS104"}), (r:RuangKelas {id_ruang: "R005"})
+CREATE (mk)-[:HELD_IN]->(r);
 
 
 // ===============================================
