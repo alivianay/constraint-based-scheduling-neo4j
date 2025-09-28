@@ -148,7 +148,7 @@ CREATE (r5:RuangKelas {
 // CREATE WAKTU (TIME SLOTS)
 // ===============================================
 
-CREATE (t5:Waktu {
+CREATE (t1:Waktu {
   id_waktu: "T05",
   hari: "Selasa",
   jam_mulai: "07:00",
@@ -156,7 +156,7 @@ CREATE (t5:Waktu {
   sesi: 1
 });
 
-CREATE (t6:Waktu {
+CREATE (t2:Waktu {
   id_waktu: "T06",
   hari: "Selasa",
   jam_mulai: "09:30",
@@ -164,7 +164,7 @@ CREATE (t6:Waktu {
   sesi: 2
 });
 
-CREATE (t7:Waktu {
+CREATE (t3:Waktu {
   id_waktu: "T07",
   hari: "Selasa",
   jam_mulai: "13:00",
@@ -172,7 +172,7 @@ CREATE (t7:Waktu {
   sesi: 3
 });
 
-CREATE (t8:Waktu {
+CREATE (t4:Waktu {
   id_waktu: "T08",
   hari: "Selasa",
   jam_mulai: "15:30",
@@ -180,7 +180,7 @@ CREATE (t8:Waktu {
   sesi: 4
 });
 
-CREATE (t9:Waktu {
+CREATE (t5:Waktu {
   id_waktu: "T09",
   hari: "Rabu",
   jam_mulai: "07:00",
@@ -188,7 +188,7 @@ CREATE (t9:Waktu {
   sesi: 1
 });
 
-CREATE (t10:Waktu {
+CREATE (t6:Waktu {
   id_waktu: "T10",
   hari: "Rabu",
   jam_mulai: "09:30",
@@ -196,7 +196,7 @@ CREATE (t10:Waktu {
   sesi: 2
 });
 
-CREATE (t11:Waktu {
+CREATE (t7:Waktu {
   id_waktu: "T11",
   hari: "Rabu",
   jam_mulai: "13:00",
@@ -204,7 +204,7 @@ CREATE (t11:Waktu {
   sesi: 3
 });
 
-CREATE (t12:Waktu {
+CREATE (t8:Waktu {
   id_waktu: "T12",
   hari: "Rabu",
   jam_mulai: "15:30",
@@ -212,7 +212,7 @@ CREATE (t12:Waktu {
   sesi: 4
 });
 
-CREATE (t13:Waktu {
+CREATE (t9:Waktu {
   id_waktu: "T13",
   hari: "Kamis",
   jam_mulai: "07:00",
@@ -220,7 +220,7 @@ CREATE (t13:Waktu {
   sesi: 1
 });
 
-CREATE (t14:Waktu {
+CREATE (t10:Waktu {
   id_waktu: "T14",
   hari: "Kamis",
   jam_mulai: "09:30",
@@ -228,7 +228,7 @@ CREATE (t14:Waktu {
   sesi: 2
 });
 
-CREATE (t15:Waktu {
+CREATE (t11:Waktu {
   id_waktu: "T15",
   hari: "Kamis",
   jam_mulai: "13:00",
@@ -236,7 +236,7 @@ CREATE (t15:Waktu {
   sesi: 3
 });
 
-CREATE (t16:Waktu {
+CREATE (t12:Waktu {
   id_waktu: "T16",
   hari: "Kamis",
   jam_mulai: "15:30",
