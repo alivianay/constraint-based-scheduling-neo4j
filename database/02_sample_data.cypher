@@ -154,7 +154,6 @@ CREATE (t1:Waktu {
   jam_mulai: "07:00",
   jam_selesai: "09:30",
   sesi: 1,
-  display_time: "Selasa 07:00-09:30"
 });
 
 CREATE (t2:Waktu {
@@ -163,7 +162,6 @@ CREATE (t2:Waktu {
   jam_mulai: "09:30",
   jam_selesai: "12:00",
   sesi: 2,
-  display_time: "Selasa 09:30-12:00"
 });
 
 CREATE (t3:Waktu {
@@ -172,7 +170,6 @@ CREATE (t3:Waktu {
   jam_mulai: "13:00",
   jam_selesai: "15:30",
   sesi: 3,
-  display_time: "Selasa 13:00-15:30"
 });
 
 CREATE (t4:Waktu {
@@ -181,7 +178,6 @@ CREATE (t4:Waktu {
   jam_mulai: "15:30",
   jam_selesai: "18:00",
   sesi: 4,
-  display_time: "Selasa 15:30-18:00"
 });
 
 CREATE (t5:Waktu {
@@ -190,7 +186,6 @@ CREATE (t5:Waktu {
   jam_mulai: "07:00",
   jam_selesai: "09:30",
   sesi: 1,
-  display_time: "Rabu 07:00-09:30"
 });
 
 CREATE (t6:Waktu {
@@ -199,7 +194,6 @@ CREATE (t6:Waktu {
   jam_mulai: "09:30",
   jam_selesai: "12:00",
   sesi: 2,
-  display_time: "Rabu 09:30-12:00"
 });
 
 CREATE (t7:Waktu {
@@ -208,7 +202,6 @@ CREATE (t7:Waktu {
   jam_mulai: "13:00",
   jam_selesai: "15:30",
   sesi: 3,
-  display_time: "Rabu 13:00-15:30"
 });
 
 CREATE (t8:Waktu {
@@ -217,7 +210,6 @@ CREATE (t8:Waktu {
   jam_mulai: "15:30",
   jam_selesai: "18:00",
   sesi: 4,
-  display_time: "Rabu 15:30-18:00"
 });
 
 CREATE (t9:Waktu {
@@ -226,7 +218,6 @@ CREATE (t9:Waktu {
   jam_mulai: "07:00",
   jam_selesai: "09:30",
   sesi: 1,
-  display_time: "Kamis 07:00-09:30"
 });
 
 CREATE (t10:Waktu {
@@ -235,7 +226,6 @@ CREATE (t10:Waktu {
   jam_mulai: "09:30",
   jam_selesai: "12:00",
   sesi: 2,
-  display_time: "Kamis 09:30-12:00"
 });
 
 CREATE (t11:Waktu {
@@ -244,7 +234,6 @@ CREATE (t11:Waktu {
   jam_mulai: "13:00",
   jam_selesai: "15:30",
   sesi: 3,
-  display_time: "Kamis 13:00-15:30"
 });
 
 CREATE (t12:Waktu {
@@ -253,7 +242,6 @@ CREATE (t12:Waktu {
   jam_mulai: "15:30",
   jam_selesai: "18:00",
   sesi: 4,
-  display_time: "Kamis 15:30-18:00"
 });
 
 // ===============================================
