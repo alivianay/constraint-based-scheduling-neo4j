@@ -1,11 +1,10 @@
 # University Course Scheduling with Neo4j 🗓️
-
 > "Dame un grrraph (¿un qué?)  
 > Un grrraph (¿un qué, un qué?)  
 > Un grrraph (¿un qué?)  
 > Un grrraph"
 
-## 👨‍🎓 Kelompok 13
+##  Kelompok 13
 
 | Nama | NIM |
 |------|-----|
@@ -13,30 +12,30 @@
 | Alivia Nayla Wibisono | 22031554041 |
 | Siti Aida Hanun | 22031554044 |
 
-## 📋 Project Overview
+##  Project Overview
 
 This project implements a **graph-based constraint satisfaction system** for university course scheduling using Neo4j. It tackles scheduling challenges such as professor availability, room capacity, and timing conflicts.
 
-### 🎯 What Problem We Solve
-- 🚫 Avoiding professor double-booking  
-- 🏫 Ensuring room availability and suitability  
-- ⏰ Preventing course timing conflicts  
-- 👥 Respecting student enrollment patterns  
-- 📚 Meeting departmental requirements  
+###  What Problem We Solve
+-  Avoiding professor double-booking  
+-  Ensuring room availability and suitability  
+-  Preventing course timing conflicts  
+-  Respecting student enrollment patterns  
+-  Meeting departmental requirements  
 
-### 🕸️ Why Graph Database?
+###  Why Graph Database?
 Neo4j models relationships naturally:
 - **Nodes** → Courses, Professors, Rooms, Time Slots  
 - **Relationships** → Constraints and assignments  
 - **Paths** → Valid schedule solutions  
 
-## 🚀 How to Use This Project
+##  How to Use This Project
 
 ### Prerequisites
 - [Neo4j Desktop](https://neo4j.com/download/) or [Neo4j Aura](https://neo4j.com/cloud/aura/)  
 - Basic knowledge of Cypher queries  
 
-### 📥 Installation & Setup
+###  Installation & Setup
 
 1. **Start Neo4j**  
    - Install Neo4j Desktop or create a free Aura account  
@@ -58,7 +57,7 @@ Neo4j models relationships naturally:
    MATCH (n) RETURN n LIMIT 50
    ```
 
-### 🎮 Demo Queries
+###  Demo Queries
 
 **1. Find Valid Schedules for "Pengantar AI"**
 ```cypher
@@ -80,7 +79,7 @@ MATCH p=()-[r:CONFLICT_WITH|REQUIRES_ROOM_TYPE|CAN_TEACH]->()
 RETURN p
 ```
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 course-scheduling-graph/
@@ -94,7 +93,7 @@ course-scheduling-graph/
 └── README.md
 ```
 
-## 📊 Sample Data Included
+##  Sample Data Included
 
 - **Courses**: Pengantar AI, Basis Data Lanjut, Jaringan Komputer  
 - **Professors**: Dr. Alice, Prof. Bob  
@@ -102,14 +101,14 @@ course-scheduling-graph/
 - **Time Slots**: Monday 08-10, Monday 10-12, Tuesday 08-10  
 - **Constraints**: Conflict rules, room requirements, professor preferences  
 
-## 🎯 Key Features
+##  Key Features
 
-- ✅ Constraint Modeling  
-- ✅ Conflict Detection  
-- ✅ Schedule Validation  
-- ✅ Flexible Querying  
+-  Constraint Modeling  
+-  Conflict Detection  
+-  Schedule Validation  
+-  Flexible Querying  
 
-## 🔍 Understanding the Graph Schema
+##  Understanding the Graph Schema
 
 ![Graph Schema](images/schema_diagram.png)
 
@@ -126,7 +125,7 @@ course-scheduling-graph/
 - `AVAILABLE_AT`  
 - `PREFERRED_TIME`  
 
-## 🎓 Educational Value
+##  Educational Value
 
 This project demonstrates:
 - Constraint Satisfaction Problems in AI  
@@ -134,14 +133,3 @@ This project demonstrates:
 - Neo4j Cypher proficiency  
 - Data modeling for complex systems  
 
-## 🤝 Contributing
-
-You can contribute by:
-- Adding more constraints  
-- Implementing scheduling algorithms  
-- Building a web interface  
-- Expanding sample data  
-
----
-
-*Built with ❤️ using Neo4j for Constraint Satisfaction Problem solving*
