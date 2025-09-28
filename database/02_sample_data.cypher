@@ -389,10 +389,10 @@ MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {sesi: 2})
 CREATE (d)-[:PREFERRED_TIME]->(w);
 
 // Prof. Ibnu prefers early morning
-MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T05"})
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T01"})
 CREATE (d)-[:PREFERRED_TIME]->(w);
 
-MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T13"})
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T09"})
 CREATE (d)-[:PREFERRED_TIME]->(w);
 
 // ===============================================
@@ -447,7 +447,7 @@ CREATE (m)-[:ENROLLED_IN]->(mk);
 MATCH (mk:MataKuliah {id_mk: "CS101"}), (d:Dosen {id_dosen: "D001"})
 CREATE (mk)-[:TAUGHT_BY]->(d);
 
-MATCH (mk:MataKuliah {id_mk: "CS101"}), (w:Waktu {id_waktu: "T05"})
+MATCH (mk:MataKuliah {id_mk: "CS101"}), (w:Waktu {id_waktu: "T01"})
 CREATE (mk)-[:SCHEDULED_AT]->(w);
 
 MATCH (mk:MataKuliah {id_mk: "CS101"}), (r:RuangKelas {id_ruang: "R001"})
@@ -457,7 +457,7 @@ CREATE (mk)-[:HELD_IN]->(r);
 MATCH (mk:MataKuliah {id_mk: "CS102"}), (d:Dosen {id_dosen: "D002"})
 CREATE (mk)-[:TAUGHT_BY]->(d);
 
-MATCH (mk:MataKuliah {id_mk: "CS102"}), (w:Waktu {id_waktu: "T06"})
+MATCH (mk:MataKuliah {id_mk: "CS102"}), (w:Waktu {id_waktu: "T02"})
 CREATE (mk)-[:SCHEDULED_AT]->(w);
 
 MATCH (mk:MataKuliah {id_mk: "CS102"}), (r:RuangKelas {id_ruang: "R002"})
@@ -467,7 +467,7 @@ CREATE (mk)-[:HELD_IN]->(r);
 MATCH (mk:MataKuliah {id_mk: "CS103"}), (d:Dosen {id_dosen: "D003"})
 CREATE (mk)-[:TAUGHT_BY]->(d);
 
-MATCH (mk:MataKuliah {id_mk: "CS103"}), (w:Waktu {id_waktu: "T07"})
+MATCH (mk:MataKuliah {id_mk: "CS103"}), (w:Waktu {id_waktu: "T03"})
 CREATE (mk)-[:SCHEDULED_AT]->(w);
 
 MATCH (mk:MataKuliah {id_mk: "CS103"}), (r:RuangKelas {id_ruang: "R003"})
@@ -477,7 +477,7 @@ CREATE (mk)-[:HELD_IN]->(r);
 MATCH (mk:MataKuliah {id_mk: "CS104"}), (d:Dosen {id_dosen: "D003"})
 CREATE (mk)-[:TAUGHT_BY]->(d);
 
-MATCH (mk:MataKuliah {id_mk: "CS104"}), (w:Waktu {id_waktu: "T11"})
+MATCH (mk:MataKuliah {id_mk: "CS104"}), (w:Waktu {id_waktu: "T07"})
 CREATE (mk)-[:SCHEDULED_AT]->(w);
 
 MATCH (mk:MataKuliah {id_mk: "CS104"}), (r:RuangKelas {id_ruang: "R005"})
