@@ -68,7 +68,7 @@ CREATE (mk6:MataKuliah {
 
 CREATE (d1:Dosen {
     id_dosen: "D001",
-    nama: "Dr. Elly Matul",
+    nama: "Prof. Elly Matul",
     bidang: "Artificial Intelligence",
     status: "tetap"
 });
@@ -82,21 +82,21 @@ CREATE (d2:Dosen {
 
 CREATE (d3:Dosen {
     id_dosen: "D003",
-    nama: "Dr. Hasanuddin Al",
+    nama: "Prof. Hasanuddin Al",
     bidang: "Computer Networks",
     status: "tetap"
 });
 
 CREATE (d4:Dosen {
     id_dosen: "D004",
-    nama: "Dr. Yuliani Puji",
+    nama: "Prof. Yuliani Puji",
     bidang: "Algorithms",
     status: "tetap"
 });
 
 CREATE (d5:Dosen {
     id_dosen: "D005",
-    nama: "Dr. Ulfa Siti",
+    nama: "Prof. Ulfa Siti",
     bidang: "Software Engineering",
     status: "kontrak"
 });
@@ -288,13 +288,40 @@ CREATE (m5:Mahasiswa {
 // CREATE PROFESSOR-COURSE RELATIONSHIPS
 // ===============================================
 
-// Dr. Elly can teach AI and Algorithms
+// Prof. Elly can teach AI and Algorithms
+MATCH (d:Dosen {id_dosen: "D001"}), (mk:MataKuliah {id_mk: "CS101"})
+CREATE (d)-[:CAN_TEACH]->(mk);
 
+MATCH (d:Dosen {id_dosen: "D001"}), (mk:MataKuliah {id_mk: "CS105"})
+CREATE (d)-[:CAN_TEACH]->(mk);
 
 // Prof. Ibnu can teach Database and Algorithms
+MATCH (d:Dosen {id_dosen: "D002"}), (mk:MataKuliah {id_mk: "CS102"})
+CREATE (d)-[:CAN_TEACH]->(mk);
 
+MATCH (d:Dosen {id_dosen: "D002"}), (mk:MataKuliah {id_mk: "CS105"})
+CREATE (d)-[:CAN_TEACH]->(mk);
 
+// Prof. Hasanuddin can teach Networks and Network Lab
+MATCH (d:Dosen {id_dosen: "D003"}), (mk:MataKuliah {id_mk: "CS103"})
+CREATE (d)-[:CAN_TEACH]->(mk);
 
+MATCH (d:Dosen {id_dosen: "D003"}), (mk:MataKuliah {id_mk: "CS104"})
+CREATE (d)-[:CAN_TEACH]->(mk);
+
+// Prof. Yuliani can teach Algorithms and Algorithm Lab
+MATCH (d:Dosen {id_dosen: "D004"}), (mk:MataKuliah {id_mk: "CS105"})
+CREATE (d)-[:CAN_TEACH]->(mk);
+
+MATCH (d:Dosen {id_dosen: "D004"}), (mk:MataKuliah {id_mk: "CS106"})
+CREATE (d)-[:CAN_TEACH]->(mk);
+
+// Prof. Ulfa can teach AI and Database
+MATCH (d:Dosen {id_dosen: "D005"}), (mk:MataKuliah {id_mk: "CS101"})
+CREATE (d)-[:CAN_TEACH]->(mk);
+
+MATCH (d:Dosen {id_dosen: "D005"}), (mk:MataKuliah {id_mk: "CS102"})
+CREATE (d)-[:CAN_TEACH]->(mk);
 
 
 
