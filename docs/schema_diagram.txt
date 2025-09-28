@@ -81,12 +81,12 @@ SCHEDULED_AT → Waktu    SCHEDULED_AT → Waktu (SAME TIME!)
 
 ```
 MataKuliah: "Pengantar AI"
-├── TAUGHT_BY → Dosen: "Dr. Alice"
+├── TAUGHT_BY → Dosen: "Ibu Elly Matul"
 ├── SCHEDULED_AT → Waktu: "Monday 08:00-10:00"
-└── HELD_IN → RuangKelas: "Room 101"
+└── HELD_IN → RuangKelas: "Room "
 
 Constraints Satisfied:
-✓ Dr. Alice is available Monday 08:00-10:00
+✓ Ibu Elly Matul is available Monday 08:00-10:00
 ✓ Room 101 is available Monday 08:00-10:00
 ✓ No conflicting courses scheduled at same time
 ✓ Room type matches course requirements
