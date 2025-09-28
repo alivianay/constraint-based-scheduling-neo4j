@@ -97,9 +97,10 @@ course-scheduling-graph/
 ##  Sample Data Included
 
 - **Courses**: Pengantar AI, Basis Data Lanjut, Jaringan Komputer  
-- **Professors**: Dr. Alice, Prof. Bob  
-- **Rooms**: R101, R102, LAB_KOM  
-- **Time Slots**: Monday 08-10, Monday 10-12, Tuesday 08-10  
+- **Professors**: Ibu Elly Matul, Pak Ibnu Febry
+- **Rooms**: E2.01.01-E2.01.04, LAB-01
+- **Day Slot**: Tuesday-Thursday
+- **Time Slots**: 7-9.30, 9.30-12.00, 13.00-15.30, 15.30-18.00 
 - **Constraints**: Conflict rules, room requirements, professor preferences  
 
 ##  Key Features
@@ -107,7 +108,6 @@ course-scheduling-graph/
 -  Constraint Modeling  
 -  Conflict Detection  
 -  Schedule Validation  
--  Flexible Querying  
 
 ##  Understanding the Graph Schema
 
@@ -117,20 +117,16 @@ course-scheduling-graph/
 - `MataKuliah` (Course)  
 - `Dosen` (Professor)  
 - `RuangKelas` (Room)  
-- `Waktu` (Time)  
+- `Waktu` (Time)
+- `Mahasiswa` (Student) 
 
 **Relationships:**
 - `CONFLICT_WITH`  
 - `CAN_TEACH`  
 - `REQUIRES_ROOM_TYPE`  
 - `AVAILABLE_AT`  
-- `PREFERRED_TIME`  
-
-##  Educational Value
-
-This project demonstrates:
-- Constraint Satisfaction Problems in AI  
-- Real-world use of Graph Databases  
-- Neo4j Cypher proficiency  
-- Data modeling for complex systems  
-
+- `PREFERRED_TIME`
+- `ENROLLED_IN`
+- `HELD_IN`
+- `SCHEDULE_AT`
+- `TAUGHT_BY`
