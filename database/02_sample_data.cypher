@@ -331,50 +331,50 @@ CREATE (d)-[:CAN_TEACH]->(mk);
 // ===============================================
 
 // Prof. Elly is available Tuesday and Wednesday mornings
+MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {id_waktu: "T01"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
 MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {id_waktu: "T05"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
-MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {id_waktu: "T09"})
-CREATE (d)-[:AVAILABLE_AT]->(w);
-
-MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {id_waktu: "T10"})
+MATCH (d:Dosen {id_dosen: "D001"}), (w:Waktu {id_waktu: "T06"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
 // Prof. Ibnu is available Tuesday and Thursday mornings
-MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T05"})
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T01"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
-MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T13"})
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T09"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
-MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T14"})
+MATCH (d:Dosen {id_dosen: "D002"}), (w:Waktu {id_waktu: "T10"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
 // Prof. Hasanuddin is available Tuesday and Wednesday afternoons
+MATCH (d:Dosen {id_dosen: "D003"}), (w:Waktu {id_waktu: "T03"})
+CREATE (d)-[:AVAILABLE_AT]->(w);
+
 MATCH (d:Dosen {id_dosen: "D003"}), (w:Waktu {id_waktu: "T07"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
 MATCH (d:Dosen {id_dosen: "D003"}), (w:Waktu {id_waktu: "T11"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
-MATCH (d:Dosen {id_dosen: "D003"}), (w:Waktu {id_waktu: "T15"})
+// Prof. Yuliani is available Wednesday and Thursday
+MATCH (d:Dosen {id_dosen: "D004"}), (w:Waktu {id_waktu: "T05"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
-// Prof. Yuliani is available Wednesday and Thursday
 MATCH (d:Dosen {id_dosen: "D004"}), (w:Waktu {id_waktu: "T09"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
-MATCH (d:Dosen {id_dosen: "D004"}), (w:Waktu {id_waktu: "T13"})
-CREATE (d)-[:AVAILABLE_AT]->(w);
-
-MATCH (d:Dosen {id_dosen: "D004"}), (w:Waktu {id_waktu: "T16"})
+MATCH (d:Dosen {id_dosen: "D004"}), (w:Waktu {id_waktu: "T12"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
 // Prof. Ulfa is available Tuesday and Thursday afternoons
-MATCH (d:Dosen {id_dosen: "D005"}), (w:Waktu {id_waktu: "T06"})
+MATCH (d:Dosen {id_dosen: "D005"}), (w:Waktu {id_waktu: "T02"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
-MATCH (d:Dosen {id_dosen: "D005"}), (w:Waktu {id_waktu: "T15"})
+MATCH (d:Dosen {id_dosen: "D005"}), (w:Waktu {id_waktu: "T12"})
 CREATE (d)-[:AVAILABLE_AT]->(w);
 
 // ===============================================
