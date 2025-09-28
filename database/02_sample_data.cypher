@@ -100,3 +100,46 @@ CREATE (d5:Dosen {
     bidang: "Software Engineering",
     status: "kontrak"
 });
+
+// ===============================================
+// CREATE RUANG KELAS
+// ===============================================
+CREATE (r1:RuangKelas {
+  id_ruang: 'R001',
+  nama: 'E2.01.01',
+  kapasitas: 40,
+  jenis: 'kelas',
+  fasilitas: ['Proyektor', 'Whiteboard', 'Internet', 'Kursi Meja']
+});
+
+CREATE (r2:RuangKelas {
+  id_ruang: 'R002',
+  nama: 'E2.01.02',
+  kapasitas: 40,
+  jenis: 'kelas',
+  fasilitas: ['Proyektor', 'Whiteboard', 'Internet', 'Kursi Meja']
+});
+
+CREATE (r3:RuangKelas {
+  id_ruang: 'R003',
+  nama: 'E2.01.03',
+  kapasitas: 40,
+  jenis: 'kelas',
+  fasilitas: ['Proyektor', 'Whiteboard', 'Internet', 'Kursi Meja']
+});
+
+CREATE (r4:RuangKelas {
+  id_ruang: 'R004',
+  nama: 'E2.01.04',
+  kapasitas: 40,
+  jenis: 'kelas',
+  fasilitas: ['Proyektor', 'Whiteboard', 'Internet', 'Kursi Meja']
+});
+
+CREATE (r5:RuangKelas {
+  id_ruang: 'R005',
+  nama: 'LAB-01',
+  kapasitas: 25,
+  jenis: 'lab',
+  fasilitas: ['Komputer', 'Internet', 'Kursi Lab', 'Proyektor', 'Whiteboard']
+});
