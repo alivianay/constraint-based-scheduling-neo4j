@@ -68,35 +68,35 @@ CREATE (mk6:MataKuliah {
 
 CREATE (d1:Dosen {
     id_dosen: "D001",
-    nama: "Dr. Elly",
+    nama: "Dr. Elly Matul",
     bidang: "Artificial Intelligence",
     status: "tetap"
 });
 
 CREATE (d2:Dosen {
     id_dosen: "D002",
-    nama: "Prof. Ibnu",
+    nama: "Prof. Ibnu Febry",
     bidang: "Database Systems",
     status: "tetap"
 });
 
 CREATE (d3:Dosen {
     id_dosen: "D003",
-    nama: "Dr. Yuli",
+    nama: "Dr. Hasanuddin Al",
     bidang: "Computer Networks",
     status: "tetap"
 });
 
 CREATE (d4:Dosen {
     id_dosen: "D004",
-    nama: "Dr. Hasan",
+    nama: "Dr. Yuliani Puji",
     bidang: "Algorithms",
     status: "tetap"
 });
 
 CREATE (d5:Dosen {
     id_dosen: "D005",
-    nama: "Dr. Risky",
+    nama: "Dr. Ulfa Siti",
     bidang: "Software Engineering",
     status: "kontrak"
 });
