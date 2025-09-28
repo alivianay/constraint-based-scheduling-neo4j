@@ -208,7 +208,7 @@ RETURN w.hari AS Day,
        w.sesi AS Session,
        count(mk) AS ScheduledCourses,
        collect(CASE WHEN mk IS NOT NULL THEN mk.nama ELSE null END) AS Courses
-ORDER BY w.hari, w.jam_mulai;
+ORDER BY Day, TimeSlot;
 
 // Find unused time slots
 MATCH (w:Waktu)
@@ -216,7 +216,7 @@ WHERE NOT (w)<-[:SCHEDULED_AT]-()
 RETURN w.hari AS UnusedDay,
        w.jam_mulai + "-" + w.jam_selesai AS UnusedTime,
        w.sesi AS Session
-ORDER BY w.hari, w.jam_mulai;
+ORDER BY UnusedDay, UnusedTime;
 
 // ===============================================
 // 10. COMPLEX CONSTRAINT QUERIES
