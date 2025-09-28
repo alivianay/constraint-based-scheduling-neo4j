@@ -1,0 +1,120 @@
+# Database Schema Diagram
+# University Course Scheduling Constraint Satisfaction Problem
+
+## Node Types and Relationships
+
+```
+MataKuliah (Course)
+├── Properties: id_mk, nama, kode, sks, semester, jenis
+├── Relationships:
+│   ├── CONFLICT_WITH → MataKuliah (courses that conflict)
+│   ├── REQUIRES_ROOM_TYPE → RuangKelas (room requirements)
+│   ├── TAUGHT_BY → Dosen (assigned professor)
+│   ├── SCHEDULED_AT → Waktu (assigned time slot)
+│   ├── HELD_IN → RuangKelas (assigned room)
+│   └── ENROLLED_IN ← Mahasiswa (student enrollments)
+
+Dosen (Professor)
+├── Properties: id_dosen, nama, bidang, status
+├── Relationships:
+│   ├── CAN_TEACH → MataKuliah (courses they can teach)
+│   ├── AVAILABLE_AT → Waktu (available time slots)
+│   ├── PREFERRED_TIME → Waktu (preferred time slots)
+│   └── TAUGHT_BY ← MataKuliah (courses they teach)
+
+RuangKelas (Room)
+├── Properties: id_ruang, nama, kapasitas, jenis, fasilitas
+├── Relationships:
+│   ├── REQUIRES_ROOM_TYPE ← MataKuliah (courses requiring this room type)
+│   └── HELD_IN ← MataKuliah (courses held in this room)
+
+Waktu (Time Slot)
+├── Properties: id_waktu, hari, jam_mulai, jam_selesai, sesi
+├── Relationships:
+│   ├── AVAILABLE_AT ← Dosen (professor availability)
+│   ├── PREFERRED_TIME ← Dosen (professor preferences)
+│   └── SCHEDULED_AT ← MataKuliah (scheduled courses)
+
+Mahasiswa (Student)
+├── Properties: id_mahasiswa, nama, angkatan, program_studi
+└── Relationships:
+    └── ENROLLED_IN → MataKuliah (course enrollments)
+```
+
+## Constraint Types
+
+### Hard Constraints (Must be satisfied)
+1. **Professor Availability**: Professor can only teach when available
+2. **Room Capacity**: Room must accommodate enrolled students
+3. **Time Conflicts**: No double-booking of professors or rooms
+4. **Course Conflicts**: Conflicting courses cannot be scheduled simultaneously
+
+### Soft Constraints (Preferences)
+1. **Professor Preferences**: Professors prefer certain time slots
+2. **Room Suitability**: Courses should use appropriate room types
+3. **Student Load**: Balanced distribution of courses across time slots
+
+## Example Constraint Violations
+
+### Professor Double-Booking
+```
+Dosen → TAUGHT_BY → MataKuliah1 → SCHEDULED_AT → Waktu
+  ↓
+TAUGHT_BY → MataKuliah2 → SCHEDULED_AT → Waktu (SAME TIME!)
+```
+
+### Room Conflicts
+```
+RuangKelas → HELD_IN ← MataKuliah1 → SCHEDULED_AT → Waktu
+    ↓
+HELD_IN ← MataKuliah2 → SCHEDULED_AT → Waktu (SAME TIME!)
+```
+
+### Course Conflicts
+```
+MataKuliah1 → CONFLICT_WITH → MataKuliah2
+     ↓                           ↓
+SCHEDULED_AT → Waktu    SCHEDULED_AT → Waktu (SAME TIME!)
+```
+
+## Valid Schedule Example
+
+```
+MataKuliah: "Pengantar AI"
+├── TAUGHT_BY → Dosen: "Dr. Alice"
+├── SCHEDULED_AT → Waktu: "Monday 08:00-10:00"
+└── HELD_IN → RuangKelas: "Room 101"
+
+Constraints Satisfied:
+✓ Dr. Alice is available Monday 08:00-10:00
+✓ Room 101 is available Monday 08:00-10:00
+✓ No conflicting courses scheduled at same time
+✓ Room type matches course requirements
+```
+
+## Query Patterns
+
+### Constraint Validation
+```cypher
+// Check for professor double-booking
+MATCH (d:Dosen)-[:TAUGHT_BY]-(mk1:MataKuliah)-[:SCHEDULED_AT]->(w:Waktu),
+      (d)-[:TAUGHT_BY]-(mk2:MataKuliah)-[:SCHEDULED_AT]->(w)
+WHERE mk1 <> mk2
+```
+
+### Schedule Generation
+```cypher
+// Find valid assignments for a course
+MATCH (mk:MataKuliah)-[:CAN_TEACH]->(d:Dosen)
+MATCH (d)-[:AVAILABLE_AT]->(w:Waktu)
+MATCH (mk)-[:REQUIRES_ROOM_TYPE]->(r:RuangKelas)
+```
+
+### Conflict Detection
+```cypher
+// Find constraint violations
+MATCH (mk1:MataKuliah)-[:CONFLICT_WITH]->(mk2:MataKuliah)
+MATCH (mk1)-[:SCHEDULED_AT]->(w1:Waktu)
+MATCH (mk2)-[:SCHEDULED_AT]->(w2:Waktu)
+WHERE w1 = w2
+```
