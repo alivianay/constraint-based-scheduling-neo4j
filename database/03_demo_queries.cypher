@@ -37,7 +37,7 @@ RETURN d.nama AS Professor,
 ORDER BY Professor;
 
 // Find room requirements for each course
-MATCH (mk:MataKuliah)-[:REQUIRES_ROOM_TYPE]->(r:RuangKelas)
+MATCH (mk:MataKuliah)-[:CLASS_ROOM]->(r:RuangKelas)
 RETURN mk.nama AS Course, collect(r.jenis) AS RequiredRoomTypes
 ORDER BY Course;
 
@@ -66,7 +66,7 @@ RETURN r.nama AS Room,
 ORDER BY Room, TimeSlot;
 
 // Find courses that conflict with each other (by design)
-MATCH (mk1:MataKuliah)-[:CONFLICT_WITH]->(mk2:MataKuliah)
+MATCH (mk1:MataKuliah)-[:SAME_TIME_CONFLICT]->(mk2:MataKuliah)
 RETURN mk1.nama AS Course1, mk2.nama AS Course2
 ORDER BY Course1;
 
@@ -111,7 +111,7 @@ ORDER BY Course;
 // Find valid schedule for a specific course (Pengantar AI)
 MATCH (mk:MataKuliah {nama: "Pengantar Kecerdasan Buatan"})-[:CAN_TEACH]->(d:Dosen)
 MATCH (d)-[:AVAILABLE_AT]->(w:Waktu)
-MATCH (mk)-[:REQUIRES_ROOM_TYPE]->(r:RuangKelas)
+MATCH (mk)-[:CLASS_ROOM]->(r:RuangKelas)
 WHERE r.jenis = "kelas"
 RETURN mk.nama AS Course,
        d.nama AS PossibleProfessor,
@@ -124,7 +124,7 @@ MATCH (mk:MataKuliah)
 WHERE NOT (mk)-[:TAUGHT_BY]->()
 MATCH (mk)-[:CAN_TEACH]->(d:Dosen)
 MATCH (d)-[:AVAILABLE_AT]->(w:Waktu)
-MATCH (mk)-[:REQUIRES_ROOM_TYPE]->(r:RuangKelas)
+MATCH (mk)-[:CLASS_ROOM]->(r:RuangKelas)
 WHERE NOT EXISTS {
   MATCH (other_mk:MataKuliah)-[:SCHEDULED_AT]->(w)
   WHERE other_mk <> mk
@@ -223,7 +223,7 @@ ORDER BY w.hari, w.jam_mulai;
 // ===============================================
 
 // Find all constraint violations in the current schedule
-MATCH (mk1:MataKuliah)-[:CONFLICT_WITH]->(mk2:MataKuliah)
+MATCH (mk1:MataKuliah)-[:SAME_TIME_CONFLICT]->(mk2:MataKuliah)
 MATCH (mk1)-[:SCHEDULED_AT]->(w1:Waktu)
 MATCH (mk2)-[:SCHEDULED_AT]->(w2:Waktu)
 WHERE w1 = w2
@@ -232,7 +232,7 @@ RETURN mk1.nama AS Course1, mk2.nama AS Course2,
 ORDER BY Course1;
 
 // Find courses that require specific room types but are assigned to wrong rooms
-MATCH (mk:MataKuliah)-[:REQUIRES_ROOM_TYPE]->(required_room:RuangKelas)
+MATCH (mk:MataKuliah)-[:CLASS_ROOM]->(required_room:RuangKelas)
 MATCH (mk)-[:HELD_IN]->(assigned_room:RuangKelas)
 WHERE required_room.jenis <> assigned_room.jenis
 RETURN mk.nama AS Course,
@@ -248,7 +248,7 @@ ORDER BY Course;
 // Find the most efficient schedule (minimize conflicts, maximize preferences)
 MATCH (d:Dosen)-[:PREFERRED_TIME]->(w:Waktu)
 MATCH (d)-[:CAN_TEACH]->(mk:MataKuliah)
-MATCH (mk)-[:REQUIRES_ROOM_TYPE]->(r:RuangKelas)
+MATCH (mk)-[:CLASS_ROOM]->(r:RuangKelas)
 WHERE NOT (mk)-[:SCHEDULED_AT]->()
 AND NOT EXISTS {
   MATCH (other_mk:MataKuliah)-[:SCHEDULED_AT]->(w)
@@ -275,7 +275,7 @@ RETURN n, r, m
 LIMIT 50;
 
 // Show constraint relationships
-MATCH p=()-[r:CONFLICT_WITH|REQUIRES_ROOM_TYPE|CAN_TEACH]->() 
+MATCH p=()-[r:SAME_TIME_CONFLICT|CLASS_ROOM|CAN_TEACH]->() 
 RETURN p
 LIMIT 20;
 

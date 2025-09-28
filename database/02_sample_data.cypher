@@ -401,15 +401,15 @@ CREATE (d)-[:PREFERRED_TIME]->(w);
 
 // Network Lab requires computer lab
 MATCH (mk:MataKuliah {id_mk: "CS104"}), (r:RuangKelas {jenis: "lab"})
-CREATE (mk)-[:REQUIRES_ROOM_TYPE]->(r);
+CREATE (mk)-[:CLASS_ROOM]->(r);
 
 // Algorithm Lab requires computer lab
 MATCH (mk:MataKuliah {id_mk: "CS106"}), (r:RuangKelas {jenis: "lab"})
-CREATE (mk)-[:REQUIRES_ROOM_TYPE]->(r);
+CREATE (mk)-[:CLASS_ROOM]->(r);
 
 // Theory courses can use regular classrooms
 MATCH (mk:MataKuliah {jenis: "teori"}), (r:RuangKelas {jenis: "kelas"})
-CREATE (mk)-[:REQUIRES_ROOM_TYPE]->(r);
+CREATE (mk)-[:CLASS_ROOM]->(r);
 
 // ===============================================
 // CREATE COURSE CONFLICTS
@@ -417,15 +417,15 @@ CREATE (mk)-[:REQUIRES_ROOM_TYPE]->(r);
 
 // AI and Database cannot be scheduled at the same time (same semester students)
 MATCH (mk1:MataKuliah {id_mk: "CS101"}), (mk2:MataKuliah {id_mk: "CS102"})
-CREATE (mk1)-[:CONFLICT_WITH]->(mk2);
+CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
 
 // Network theory and lab cannot be at the same time
 MATCH (mk1:MataKuliah {id_mk: "CS103"}), (mk2:MataKuliah {id_mk: "CS104"})
-CREATE (mk1)-[:CONFLICT_WITH]->(mk2);
+CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
 
 // Algorithm theory and lab cannot be at the same time
 MATCH (mk1:MataKuliah {id_mk: "CS105"}), (mk2:MataKuliah {id_mk: "CS106"})
-CREATE (mk1)-[:CONFLICT_WITH]->(mk2);
+CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
 
 // ===============================================
 // CREATE STUDENT ENROLLMENTS
