@@ -41,10 +41,10 @@ This project implements a **graph-based constraint satisfaction system** for uni
 
    ```cypher
    // 1. First, run the schema setup
-   :source database/01_DDL.cypher
+   :source database/01_schema_setup.cypher
 
    // 2. Then, load sample data
-   :source database/02_DML.cypher
+   :source database/02_sample_data.cypher
    ```
 
 3. **Explore the Data**
@@ -79,8 +79,8 @@ RETURN p
 ```
 constraint-scheduling-neo4j/
 ├── database/
-│   ├── 01_DDL.cypher    # Database constraints & indexes
-│   ├── 02_DML.cypher     # Sample nodes & relationships
+│   ├── 01_schema_setup.cypher    # Database constraints & indexes
+│   ├── 02_sample_data.cypher     # Sample nodes & relationships
 │   
 ├── docs/
 │   ├── database_design.md        # Schema explanation
