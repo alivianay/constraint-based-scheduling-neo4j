@@ -1,5 +1,5 @@
 // ===============================================
-// University Course Scheduling 
+// University Course Scheduling - Sample Data (Simplified)
 // ===============================================
 
 // -----------------------
@@ -99,4 +99,36 @@ MATCH (mk:MataKuliah {jenis:"teori"}), (r:RuangKelas {jenis:"kelas"}) CREATE (mk
 // COURSE CONFLICTS
 // -----------------------
 MATCH (mk1:MataKuliah {id_mk:"CS101"}), (mk2:MataKuliah {id_mk:"CS102"}) CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
-MATCH (mk1:MataKuliah {id_mk:"CS103"}), (mk2:M
+MATCH (mk1:MataKuliah {id_mk:"CS103"}), (mk2:MataKuliah {id_mk:"CS104"}) CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
+MATCH (mk1:MataKuliah {id_mk:"CS105"}), (mk2:MataKuliah {id_mk:"CS106"}) CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
+
+// -----------------------
+// STUDENT ENROLLMENTS
+// -----------------------
+MATCH (m:Mahasiswa {angkatan:2021}), (mk:MataKuliah {semester:5}) CREATE (m)-[:ENROLLED_IN]->(mk);
+MATCH (m:Mahasiswa {angkatan:2020}), (mk:MataKuliah {semester:3}) CREATE (m)-[:ENROLLED_IN]->(mk);
+
+// -----------------------
+// SAMPLE SCHEDULE
+// -----------------------
+MATCH (mk:MataKuliah {id_mk:"CS101"}), (d:Dosen {id_dosen:"D001"}) CREATE (mk)-[:TAUGHT_BY]->(d);
+MATCH (mk:MataKuliah {id_mk:"CS101"}), (w:Waktu {id_waktu:"T01"}) CREATE (mk)-[:SCHEDULED_AT]->(w);
+MATCH (mk:MataKuliah {id_mk:"CS101"}), (r:RuangKelas {id_ruang:"R001"}) CREATE (mk)-[:HELD_IN]->(r);
+
+MATCH (mk:MataKuliah {id_mk:"CS102"}), (d:Dosen {id_dosen:"D002"}) CREATE (mk)-[:TAUGHT_BY]->(d);
+MATCH (mk:MataKuliah {id_mk:"CS102"}), (w:Waktu {id_waktu:"T02"}) CREATE (mk)-[:SCHEDULED_AT]->(w);
+MATCH (mk:MataKuliah {id_mk:"CS102"}), (r:RuangKelas {id_ruang:"R002"}) CREATE (mk)-[:HELD_IN]->(r);
+
+MATCH (mk:MataKuliah {id_mk:"CS103"}), (d:Dosen {id_dosen:"D003"}) CREATE (mk)-[:TAUGHT_BY]->(d);
+MATCH (mk:MataKuliah {id_mk:"CS103"}), (w:Waktu {id_waktu:"T03"}) CREATE (mk)-[:SCHEDULED_AT]->(w);
+MATCH (mk:MataKuliah {id_mk:"CS103"}), (r:RuangKelas {id_ruang:"R003"}) CREATE (mk)-[:HELD_IN]->(r);
+
+MATCH (mk:MataKuliah {id_mk:"CS104"}), (d:Dosen {id_dosen:"D003"}) CREATE (mk)-[:TAUGHT_BY]->(d);
+MATCH (mk:MataKuliah {id_mk:"CS104"}), (w:Waktu {id_waktu:"T07"}) CREATE (mk)-[:SCHEDULED_AT]->(w);
+MATCH (mk:MataKuliah {id_mk:"CS104"}), (r:RuangKelas {id_ruang:"R005"}) CREATE (mk)-[:HELD_IN]->(r);
+
+// -----------------------
+// VERIFY DATA
+// -----------------------
+MATCH (n) RETURN labels(n) AS NodeType, count(n) AS Count ORDER BY NodeType;
+MATCH (n)-[r]->(m) RETURN type(r) AS RelationshipType, count(r) AS Count ORDER BY RelationshipType;
