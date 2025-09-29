@@ -41,10 +41,10 @@ This project implements a **graph-based constraint satisfaction system** for uni
 
    ```cypher
    // 1. First, run the schema setup
-   :source database/01_schema_setup.cypher
+   :source database/01_DDL.cypher
 
    // 2. Then, load sample data
-   :source database/02_sample_data.cypher
+   :source database/02_DML.cypher
    ```
 
 3. **Explore the Data**
@@ -79,9 +79,9 @@ RETURN p
 ```
 constraint-scheduling-neo4j/
 ├── database/
-│   ├── 01_schema_setup.cypher    # Database constraints & indexes
-│   ├── 02_sample_data.cypher     # Sample nodes & relationships
-│   └── 03_demo_queries.cypher    # Demonstration queries
+│   ├── 01_DDL.cypher    # Database constraints & indexes
+│   ├── 02_DML.cypher     # Sample nodes & relationships
+│   
 ├── docs/
 │   ├── database_design.md        # Schema explanation
 │   ├── demonstration_guide.md    # Demo instructions
@@ -99,7 +99,6 @@ constraint-scheduling-neo4j/
 - **Time Slots**: Tuesday-Thursday, 07:00-18:00 (12 time slots with slot)
 - **Constraints**: Same-time conflicts, room requirements, professor preferences  
 
-##  Key Features
 
 
 ##  Understanding the Graph Schema
