@@ -7,8 +7,8 @@
 MataKuliah (Course)
 ├── Properties: id_mk, nama, kode, sks, semester, jenis
 ├── Relationships:
-│   ├── CONFLICT_WITH → MataKuliah (courses that conflict)
-│   ├── REQUIRES_ROOM_TYPE → RuangKelas (room requirements)
+│   ├── SAME_TIME_Course → MataKuliah (courses that conflict)
+│   ├── CLASS_ROOM → RuangKelas (room requirements)
 │   ├── TAUGHT_BY → Dosen (assigned professor)
 │   ├── SCHEDULED_AT → Waktu (assigned time slot)
 │   ├── HELD_IN → RuangKelas (assigned room)
@@ -113,7 +113,7 @@ MATCH (mk)-[:REQUIRES_ROOM_TYPE]->(r:RuangKelas)
 ### Conflict Detection
 ```cypher
 // Find constraint violations
-MATCH (mk1:MataKuliah)-[:CONFLICT_WITH]->(mk2:MataKuliah)
+MATCH (mk1:MataKuliah)-[:SAME_TIME_Course]->(mk2:MataKuliah)
 MATCH (mk1)-[:SCHEDULED_AT]->(w1:Waktu)
 MATCH (mk2)-[:SCHEDULED_AT]->(w2:Waktu)
 WHERE w1 = w2

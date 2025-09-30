@@ -60,8 +60,8 @@ Represents students with the following properties:
 ### Relationship Types
 
 #### Constraint Relationships
-- **CONFLICT_WITH**: Courses that cannot be scheduled at the same time
-- **REQUIRES_ROOM_TYPE**: Course requires specific room type
+- **SAME_TIME_Course**: Courses that cannot be scheduled at the same time
+- **CLASS_ROOM**: Course requires specific room type
 - **CAN_TEACH**: Professor can teach specific course
 - **AVAILABLE_AT**: Professor is available at specific time
 - **PREFERRED_TIME**: Professor prefers specific time slots
@@ -120,7 +120,7 @@ MATCH (mk)-[:REQUIRES_ROOM_TYPE]->(r:RuangKelas)
 ### 3. Conflict Detection
 ```cypher
 // Find constraint violations
-MATCH (mk1:MataKuliah)-[:CONFLICT_WITH]->(mk2:MataKuliah)
+MATCH (mk1:MataKuliah)-[:SAME_TIME_Course]->(mk2:MataKuliah)
 MATCH (mk1)-[:SCHEDULED_AT]->(w1:Waktu)
 MATCH (mk2)-[:SCHEDULED_AT]->(w2:Waktu)
 WHERE w1 = w2

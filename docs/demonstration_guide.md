@@ -86,7 +86,7 @@ RETURN r.nama AS Room,
        mk1.nama AS Course1, mk2.nama AS Course2;
 
 // 3. Show course conflicts
-MATCH (mk1:MataKuliah)-[:CONFLICT_WITH]->(mk2:MataKuliah)
+MATCH (mk1:MataKuliah)-[:SAME_TIME_Course]->(mk2:MataKuliah)
 RETURN mk1.nama AS Course1, mk2.nama AS Course2;
 ```
 
@@ -232,7 +232,7 @@ RETURN mk.nama AS Course, required_room.jenis AS RequiredType,
        assigned_room.jenis AS AssignedType, assigned_room.nama AS AssignedRoom;
 
 // 3. Show complete constraint network
-MATCH p=()-[r:CONFLICT_WITH|REQUIRES_ROOM_TYPE|CAN_TEACH]->()
+MATCH p=()-[r:SAME_TIME_Course|CLASS_ROOM|CAN_TEACH]->()
 RETURN p LIMIT 20;
 ```
 
@@ -249,7 +249,7 @@ MATCH p=(mk:MataKuliah)-[:TAUGHT_BY]->(d:Dosen),
 RETURN p, mk, d, w, r LIMIT 10;
 
 // 2. Show constraint relationships
-MATCH p=()-[r:CONFLICT_WITH|REQUIRES_ROOM_TYPE]->()
+MATCH p=()-[r:SAME_TIME_Course|CLASS_ROOM]->()
 RETURN p LIMIT 15;
 
 // 3. Show complete graph (be careful with large datasets)

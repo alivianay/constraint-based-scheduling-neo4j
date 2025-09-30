@@ -54,23 +54,22 @@ This project implements a **graph-based constraint satisfaction system** for uni
 
 ###  Demo Queries
 
-**1. Find Valid Schedules for "Pengantar AI"**
-```cypher
-:source database/03_demo_queries.cypher
-```
+**Find Valid Schedules and Run the Demo**
+- See detailed walkthrough and copy-paste-ready queries in `docs/demonstration_guide.md`.
 
 **2. Detect Scheduling Conflicts**
 ```cypher
 MATCH (d:Dosen)-[:TAUGHT_BY]-(mk1:MataKuliah)-[:SCHEDULED_AT]->(w:Waktu),
       (d)-[:TAUGHT_BY]-(mk2:MataKuliah)-[:SCHEDULED_AT]->(w)
 WHERE mk1 <> mk2
-RETURN d.nama AS Dosen, w.slot AS Waktu, 
+RETURN d.nama AS Dosen,
+       w.hari + " " + w.jam_mulai + "-" + w.jam_selesai AS Waktu,
        mk1.nama AS Kelas_1, mk2.nama AS Kelas_2
 ```
 
 **3. View All Constraints**
 ```cypher
-MATCH p=()-[r:SAME_TIME_CONFLICT|CLASS_ROOM|CAN_TEACH]->() 
+MATCH p=()-[r:SAME_TIME_Course|CLASS_ROOM|CAN_TEACH]->() 
 RETURN p
 ```
 
@@ -96,7 +95,7 @@ constraint-scheduling-neo4j/
 - **Professors**: Prof. Elly Matul, Prof. Ibnu Febry, Prof. Hasanuddin Al, Prof. Yuliani Puji, Prof. Ulfa Siti
 - **Rooms**: E2.01.01, E2.01.02, E2.01.03, E2.01.04, LAB-01
 - **Students**: Devina Sawitri, Alivia Wibisono, Siti Aida, Daffa Narawangsa, Ferdiansyah Syahputa
-- **Time Slots**: Tuesday-Thursday, 07:00-18:00 (12 time slots with slot)
+- **Time Slots**: Tuesday–Thursday, 07:00–18:00 (12 time slots, T01–T12)
 - **Constraints**: Same-time conflicts, room requirements, professor preferences  
 
 
@@ -113,7 +112,7 @@ constraint-scheduling-neo4j/
 - `Mahasiswa` (Student) 
 
 **Relationships:**
-- `SAME_TIME_CONFLICT` - Courses that cannot be scheduled simultaneously
+- `SAME_TIME_Course` - Courses that cannot be scheduled simultaneously
 - `CLASS_ROOM` - Course room requirements  
 - `CAN_TEACH` - Professor teaching capabilities
 - `TAUGHT_BY` - Course assignments to professors

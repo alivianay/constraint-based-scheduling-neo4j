@@ -45,10 +45,10 @@
 
 ## Current Schedule Assignments (Fixed)
 
-1. **Pengantar AI (CS101)** - Prof. Elly - T01 (Tuesday 07:00-09:30) - Room E2.01.01 ✓
-2. **Basis Data Lanjut (CS102)** - Prof. Ibnu - T02 (Tuesday 09:30-12:00) - Room E2.01.02 ✓
-3. **Jaringan Komputer (CS103)** - Prof. Hasanuddin - T03 (Tuesday 13:00-15:30) - Room E2.01.03 ✓
-4. **Praktikum Jaringan (CS104)** - Prof. Hasanuddin - T07 (Wednesday 13:00-15:30) - Lab-01 ✓
+1. **Pengantar AI (CS101)** - Ibu Elly - T01 (Tuesday 07:00-09:30) - Room E2.01.01 ✓
+2. **Basis Data Lanjut (CS102)** - Bapak Ibnu - T02 (Tuesday 09:30-12:00) - Room E2.01.02 ✓
+3. **Jaringan Komputer (CS103)** - Bapak Hasanuddin - T03 (Tuesday 13:00-15:30) - Room E2.01.03 ✓
+4. **Praktikum Jaringan (CS104)** - Bapak Hasanuddin - T07 (Wednesday 13:00-15:30) - Lab-01 ✓
 
 ## Validation
 
