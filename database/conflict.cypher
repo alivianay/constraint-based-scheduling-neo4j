@@ -21,10 +21,10 @@ CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
 MATCH (mk1:MataKuliah)-[:TAUGHT_BY]->(d:Dosen)<-[:TAUGHT_BY]-(mk2:MataKuliah),
       (mk1)-[:SCHEDULED_AT]->(w:Waktu)<-[:SCHEDULED_AT]-(mk2)
 WHERE mk1.id_mk < mk2.id_mk   // biar gak duplikat pasangan
-RETURN d.nama AS Dosen, w.hari AS Hari, w.jam_mulai + "-" + w.jam_selesai AS Jam,
-       collect(mk1.nama) + collect(mk2.nama) AS MataKuliah_Bentrok;
-
-
+RETURN d.nama AS Dosen, 
+       w.hari AS Hari, 
+       w.jam_mulai + "-" + w.jam_selesai AS Jam,
+       collect(mk1.nama) + collect(mk2.nama) AS Conflict_Courses;
 
 // -----------------------
 // Devina -> CS107
@@ -36,5 +36,7 @@ CREATE (m)-[:ENROLLED_IN]->(mk);
 MATCH (m:Mahasiswa)-[:ENROLLED_IN]->(mk1:MataKuliah)-[:SCHEDULED_AT]->(w:Waktu),
       (m)-[:ENROLLED_IN]->(mk2:MataKuliah)-[:SCHEDULED_AT]->(w)
 WHERE mk1.id_mk < mk2.id_mk
-RETURN m.nama AS Mahasiswa, w.hari AS Hari, w.jam_mulai + "-" + w.jam_selesai AS Jam,
-       collect(DISTINCT mk1.nama) + collect(DISTINCT mk2.nama) AS MataKuliah_Bentrok;
+RETURN m.nama AS Mahasiswa, 
+       w.hari AS Hari, 
+       w.jam_mulai + "-" + w.jam_selesai AS Jam,
+       collect(DISTINCT mk1.nama) + collect(DISTINCT mk2.nama) AS Conflict_Courses;
