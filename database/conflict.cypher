@@ -16,7 +16,7 @@ CREATE (mk)-[:SCHEDULED_AT]->(w)
 CREATE (mk)-[:HELD_IN]->(r);
 
 MATCH (mk1:MataKuliah {id_mk:"CS101"}), (mk2:MataKuliah {id_mk:"CS107"})
-CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
+CREATE (mk1)-[:SAME_TIME_Course]->(mk2);
 
 MATCH (mk1:MataKuliah)-[:TAUGHT_BY]->(d:Dosen)<-[:TAUGHT_BY]-(mk2:MataKuliah),
       (mk1)-[:SCHEDULED_AT]->(w:Waktu)<-[:SCHEDULED_AT]-(mk2)
