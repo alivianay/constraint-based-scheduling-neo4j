@@ -20,28 +20,28 @@
 ## Professor Availability (Fixed)
 
 ### Prof. Elly (D001) - AI & Algorithms
-- T01 (Tuesday 07:00-09:30) ✓
-- T05 (Wednesday 07:00-09:30) ✓  
-- T06 (Wednesday 09:30-12:00) ✓
+- T01 (Tuesday 07:00-09:30) 
+- T05 (Wednesday 07:00-09:30) 
+- T06 (Wednesday 09:30-12:00) 
 
 ### Prof. Ibnu (D002) - Database & Algorithms  
-- T01 (Tuesday 07:00-09:30) ✓
-- T09 (Thursday 07:00-09:30) ✓
-- T10 (Thursday 09:30-12:00) ✓
+- T01 (Tuesday 07:00-09:30) 
+- T09 (Thursday 07:00-09:30) 
+- T10 (Thursday 09:30-12:00) 
 
 ### Prof. Hasanuddin (D003) - Networks & Network Lab
-- T03 (Tuesday 13:00-15:30) ✓
-- T07 (Wednesday 13:00-15:30) ✓
-- T11 (Thursday 13:00-15:30) ✓
+- T03 (Tuesday 13:00-15:30) 
+- T07 (Wednesday 13:00-15:30) 
+- T11 (Thursday 13:00-15:30) 
 
 ### Prof. Yuliani (D004) - Algorithms & Algorithm Lab
-- T05 (Wednesday 07:00-09:30) ✓
-- T09 (Thursday 07:00-09:30) ✓
-- T12 (Thursday 15:30-18:00) ✓
+- T05 (Wednesday 07:00-09:30) 
+- T09 (Thursday 07:00-09:30) 
+- T12 (Thursday 15:30-18:00) 
 
 ### Prof. Ulfa (D005) - AI & Database
-- T02 (Tuesday 09:30-12:00) ✓
-- T12 (Thursday 15:30-18:00) ✓
+- T02 (Tuesday 09:30-12:00) 
+- T12 (Thursday 15:30-18:00) 
 
 ## Current Schedule Assignments (Fixed)
 
@@ -53,7 +53,7 @@
 ## Validation
 
 All assignments are now consistent with:
-- Professor availability ✓
-- Room requirements ✓
-- No time conflicts ✓
-- Proper time slot numbering (T01-T12) ✓
+- Professor availability
+- Room requirements
+- No time conflicts
+- Proper time slot numbering (T01-T12)
