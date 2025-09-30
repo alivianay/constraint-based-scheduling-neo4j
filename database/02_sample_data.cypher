@@ -96,11 +96,11 @@ MATCH (mk:MataKuliah {id_mk:"CS106"}), (r:RuangKelas {jenis:"lab"}) CREATE (mk)-
 MATCH (mk:MataKuliah {jenis:"teori"}), (r:RuangKelas {jenis:"kelas"}) CREATE (mk)-[:CLASS_ROOM]->(r);
 
 // -----------------------
-// COURSE CONFLICTS
+// COURSE same time
 // -----------------------
-MATCH (mk1:MataKuliah {id_mk:"CS101"}), (mk2:MataKuliah {id_mk:"CS102"}) CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
-MATCH (mk1:MataKuliah {id_mk:"CS103"}), (mk2:MataKuliah {id_mk:"CS104"}) CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
-MATCH (mk1:MataKuliah {id_mk:"CS105"}), (mk2:MataKuliah {id_mk:"CS106"}) CREATE (mk1)-[:SAME_TIME_CONFLICT]->(mk2);
+MATCH (mk1:MataKuliah {id_mk:"CS101"}), (mk2:MataKuliah {id_mk:"CS102"}) CREATE (mk1)-[:SAME_TIME_Course]->(mk2);
+MATCH (mk1:MataKuliah {id_mk:"CS103"}), (mk2:MataKuliah {id_mk:"CS104"}) CREATE (mk1)-[:SAME_TIME_Course]->(mk2);
+MATCH (mk1:MataKuliah {id_mk:"CS105"}), (mk2:MataKuliah {id_mk:"CS106"}) CREATE (mk1)-[:SAME_TIME_Course]->(mk2);
 
 // -----------------------
 // STUDENT ENROLLMENTS
