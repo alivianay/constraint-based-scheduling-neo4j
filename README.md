@@ -1,11 +1,10 @@
-# University Course Scheduling with Neo4j 🗓️
+# University Course Scheduling with Neo4j
 > "Dame un grrraph (¿un qué?)  
 > Un grrraph (¿un qué, un qué?)  
 > Un grrraph (¿un qué?)  
 > Un grrraph"
 
-# Hi We Are
-##  Kelompok 13
+## Hi! We Are Kelompok 13!
 
 | Nama | NIM |
 |------|-----|
