@@ -5,7 +5,7 @@
 > Un grrraph"
 
 # Hi We Are
-##  Kelompok 13
+# Kelompok 13
 
 | Nama | NIM |
 |------|-----|
